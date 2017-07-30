@@ -6,6 +6,7 @@ const config = {
   output: {
     path: path.resolve(__dirname + '/build'),
     filename: 'bundle.js',
+    publicPath: 'build/'
   },
   module: {
     rules: [
@@ -20,11 +21,13 @@ const config = {
         test: /\.css$/
       },
       {
-        test: /\.(jpg|png|gif|svg)$/,
+        test: /\.(jpge|jpg|png|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
-            options: { 'limit': 40000 }
+            options: { 
+              limit: 40000 
+            }
           },
           'image-webpack-loader'
         ]
